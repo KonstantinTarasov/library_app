@@ -1,4 +1,6 @@
 class BookController < ApplicationController
+  before_action :set_book
+
   def index
     @books = Book.all
   end
@@ -37,6 +39,10 @@ class BookController < ApplicationController
   end
 
   private
+
+  def set_book
+    @book = Book.find_by(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:title, :description, :year, :author)

@@ -1,2 +1,16 @@
-<h1>Book#index</h1>
-<p>Find me in app/views/book/index.html.erb</p>
+<div class="text-center">
+  <div>
+    <h1>Библиотека</h1>
+  </div>
+
+  <% @books.each do |book| %>
+    <div>
+      <div>
+        <%= link_to book.title, book_path(book) %>
+        <%= book.description %>
+        <%= book.year %>
+        <%= book.author %>
+      </div>
+    </div>
+  <% end %>
+</div>
