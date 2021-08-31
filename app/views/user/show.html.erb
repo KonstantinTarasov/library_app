@@ -1,2 +1,17 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<div class="text-center">
+  <h1><%= @user.name %></h1>
+
+  <% @user.books.each do |book| %>
+    <div>
+      <p><%= book.title %></p>
+      <p><%= book.description %></p>
+      <p><%= book.author %></p>
+      <p><%= book.year %></p>
+    </div>
+  <% end %>
+
+  <p class="buffer-top">
+    <%= link_to "Редактировать профиль", edit_user_path(@user),
+                class: 'btn btn-default' %>
+  </p>
+</div>

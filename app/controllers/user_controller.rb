@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
+
   def show
   end
 
@@ -14,6 +16,10 @@ class UserController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find_by(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :email)
