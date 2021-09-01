@@ -9,7 +9,7 @@ class UserController < ApplicationController
 
   def update
     if @user = User.update(user_params)
-      redirect_to @user, 'The user has been successfully updated.'
+      redirect_to user_url
     else
       render :edit
     end
