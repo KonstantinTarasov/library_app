@@ -1,4 +1,4 @@
-class BookController < ApplicationController
+class BooksController < ApplicationController
   before_action :set_book
 
   def index
@@ -19,7 +19,7 @@ class BookController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to @book, notice: 'The book was added successfully.'
+      redirect_to @book, notice: 'The books was added successfully.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class BookController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: 'The book was successfully updated.'
+      redirect_to @book, notice: 'The books was successfully updated.'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class BookController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to book_url, notice: 'The book was successfully deleted'
+    redirect_to book_url, notice: 'The books was successfully deleted'
   end
 
   private

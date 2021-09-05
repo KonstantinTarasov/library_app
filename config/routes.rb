@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'book#index'
+  root 'books#index'
 
-  resources :book
+  resources :books
   resources :user, only: [:show, :edit, :update]
 end
