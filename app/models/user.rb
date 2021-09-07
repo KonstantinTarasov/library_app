@@ -4,7 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: {minimum: 2}, uniqueness: true
-  validates :email, presence: true, uniqueness: true
 
   has_many :books
+
+  before_validation :set_name, on: :create
+
+  private
+
+  def set_name
+    self.name = "Пользователь библиотеки №#{rand(777)}" if self.name.blank?
+  end
 end

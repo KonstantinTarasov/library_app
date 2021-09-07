@@ -11,9 +11,21 @@
   </head>
 
   <body>
-  <div class="header">
-    <div class="header-logo">
-      <h1 class="header-title text-center"><%= link_to "Библиотека", root_path %></h1>
+  <div class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container">
+      <%= link_to "Библиотека", root_path, class: 'navbar-brand' %>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <% if user_signed_in? %>
+            <li class="nav-link"><%= link_to 'Профиль', current_user %></li>
+            <li class="nav-link"><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+            <li class="nav-link"><%= link_to 'Войти', new_user_session_path %></li>
+            <li class="nav-link"><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
     <%= yield %>
