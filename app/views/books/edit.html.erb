@@ -1,2 +1,14 @@
-<h1>Book#edit</h1>
-<p>Find me in app/views/book/edit.html.erb</p>
+<div class="row">
+  <div class="col-8 offset-2">
+    <div class="text-center">
+      <h3>Изменить информацию о книги</h3>
+    </div>
+    <%= simple_form_for @book do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :year %>
+      <%= f.input :author %>
+      <%= f.button :submit, class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
   before_action :set_book
+  before_action :set_current_user_book, only: [:edit, :update, :destroy]
 
   def index
     @books = Book.all
@@ -9,14 +12,14 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @book = current_user.books.build
   end
 
   def edit
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
 
     if @book.save
       redirect_to @book, notice: 'The books was added successfully.'
@@ -39,6 +42,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def set_current_user_book
+    @book = current_user.books.find(params[:id])
+  end
 
   def set_book
     @book = Book.find_by(params[:id])
