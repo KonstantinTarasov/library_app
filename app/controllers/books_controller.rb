@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
-  before_action :set_book
+  before_action :set_book, except: [:index, :new, :create]
   before_action :set_current_user_book, only: [:edit, :update, :destroy]
 
   def index
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
   end
 
   def set_book
-    @book = Book.find_by(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def book_params
