@@ -6,8 +6,10 @@
     <%= simple_form_for @user do |f| %>
       <%= f.input :name %>
       <%= f.input :email %>
-      <%= f.input :password_field %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
+    <p class="buffer-top py-2">
+      <%= link_to 'Сменить пароль', edit_user_registration_path %>
+    </p>
   </div>
 </div>
