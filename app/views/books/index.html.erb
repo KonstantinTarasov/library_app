@@ -1,11 +1,17 @@
 <div class="text-center">
-
-  <h1>Книги</h1>
+  <div class="m-1 p-1">
+    <h1>Книги</h1>
+  </div>
 
   <% @books.each do |book| %>
-    <div>
+    <div class="row justify-content-center m-2 p-2">
+      <div class="col-4">
+        <p><%= image_tag book.image.thumb.url if book.image_url %></p>
+      </div>
+      <div class="col-4">
         <p><%= link_to book.title, book_path(book) %></p>
         <p>Автор <%= book.author %></p>
+      </div>
     </div>
   <% end %>
 

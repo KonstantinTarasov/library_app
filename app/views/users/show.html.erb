@@ -1,13 +1,20 @@
 <div class="text-center">
-  <h1><%= @user.name %></h1>
+  <div class="m-1 p-1">
+    <h1><%= @user.name %></h1>
+  </div>
 
   <% @user.books.each do |book| %>
-    <div>
-      <p><%= book.title %></p>
-      <p><%= book.description %></p>
-      <p><%= book.author %></p>
-      <p><%= book.year %></p>
-      <p><%= link_to "Редактировать книгу", edit_book_path(book) %></p>
+    <div class="row justify-content-center m-2 p-2">
+      <div class="col-4">
+        <p><%=image_tag book.image.url if book.image_url%></p>
+      </div>
+      <div class="col-4">
+        <p><%= book.title %></p>
+        <p><%= book.description %></p>
+        <p><%= book.author %></p>
+        <p><%= book.year %></p>
+        <p><%= link_to "Редактировать книгу", edit_book_path(book) %></p>
+      </div>
     </div>
   <% end %>
 
