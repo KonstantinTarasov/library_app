@@ -32,7 +32,7 @@ gem 'rmagick'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :production do
-  gem 'pg', '~> 0.18'
+  gem 'pg', '~> 1.0.0'
 end
 
 group :development, :test do
