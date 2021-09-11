@@ -17,3 +17,12 @@
 * rake db:migrate
 * rails s
 * 0.0.0.0:3000
+
+### Приложение на Heroku
+
+[LibraryApp](https://mega-library.herokuapp.com/)
+
+Инструкции по эксплуатации:
+
+Находите книги, обменивайтесь и ... - читайте!
+
