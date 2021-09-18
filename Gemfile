@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
