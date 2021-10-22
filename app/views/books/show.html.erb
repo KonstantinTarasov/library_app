@@ -22,4 +22,17 @@
                   class: 'btn btn-primary' %>
     </div>
   <% end %>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="event-comments buffer-top">
+        <%= render partial: 'comments/form',
+                   locals: {comment: @new_comment || @book.comments.build} %>
+        <div class="buffer-both">
+          <%= render partial: 'comments/comment',
+                     collection: @book.comments.except(@new_comment) %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -9,6 +9,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @new_comment = @book.comments.build(params[:comment])
   end
 
   def new
