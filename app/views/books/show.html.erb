@@ -23,9 +23,9 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-md-8">
-      <div class="event-comments buffer-top">
+  <div class="row justify-content-center m-2 p-2">
+    <div class="col-8">
+      <div class="buffer-top">
         <%= render partial: 'comments/form',
                    locals: {comment: @new_comment || @book.comments.build} %>
         <div class="buffer-both">
