@@ -119,7 +119,7 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # Host
-  config.action_mailer.default_url_options = {host: 'megabbq.herokuapp.com'}
+  config.action_mailer.default_url_options = {host: 'mega-library.herokuapp.com'}
 
   # Ошибки рассылки юзеру не показываем
   config.action_mailer.raise_delivery_errors = false
