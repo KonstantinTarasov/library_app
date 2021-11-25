@@ -1,0 +1,14 @@
+<h1><%= 'Коментарий' %></h1>
+<p><%= @comment.body %></p>
+<p><%= 'Автор' %>: <strong><%= @comment.user_name %></strong></p>
+
+<hr/>
+
+<%= 'Книга' %>
+<h3><%= @book.title %></h3>
+
+<%= 'Дата и время' %>
+<h4><%= l @book.created_at %></h4>
+
+<%= 'Владелец книги' %>
+<h4><%= @book.user.name %></h4>

@@ -4,10 +4,11 @@ class CommentsController < ApplicationController
 
   def create
     @new_comment = @book.comments.build(comment_params)
-
     @new_comment.user = current_user
 
     if @new_comment.save
+      notify_owner(@book,@new_comment)
+
       redirect_to @book, notice: 'comment was successful created'
     else
       render :'books/show'
@@ -38,5 +39,13 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body,:user_name)
+  end
+
+  def notify_owner(book, comment)
+    owner_email = [book.user.email].uniq
+
+    owner_email.each do |mail|
+      BookMailer.comment(book, comment, mail).deliver_now
+    end
   end
 end
