@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @new_comment = @book.comments.build(comment_params)
     @new_comment.user = current_user
 
-    if @new_comment.save
+    if check_captcha(@new_comment) && @new_comment.save
       notify_owner(@book,@new_comment)
 
       redirect_to @book, notice: 'comment was successful created'
@@ -47,5 +47,9 @@ class CommentsController < ApplicationController
     owner_email.each do |mail|
       BookMailer.comment(book, comment, mail).deliver_now
     end
+  end
+
+  def check_captcha(model)
+    current_user.present? || verify_recaptcha(model: model)
   end
 end

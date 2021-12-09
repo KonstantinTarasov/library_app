@@ -28,6 +28,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
