@@ -9,7 +9,7 @@
         <p><%= image_tag book.image.thumb.url if book.image_url %></p>
       </div>
       <div class="col-4">
-        <p><%= link_to book.title, book_path(book) %></p>
+        <p><%= link_to book.title, book_path(book[:id]) %></p>
         <p>Автор <%= book.author %></p>
       </div>
     </div>

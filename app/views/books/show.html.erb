@@ -16,12 +16,6 @@
   <div>
     <p>Добавил книгу <%= link_to @book.user.name, user_path(@book) %></p>
   </div>
-  <% if current_user_can_edit?(@book) %>
-    <div class="buffer-both">
-      <%= link_to 'Изменить', edit_book_path(@book),
-                  class: 'btn btn-primary' %>
-    </div>
-  <% end %>
 
   <div class="row justify-content-center m-2 p-2">
     <div class="col-8">
