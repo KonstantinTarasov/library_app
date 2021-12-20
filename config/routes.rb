@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :books do
     resources :comments, only: [:create, :destroy]
   end
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :destroy]
 end

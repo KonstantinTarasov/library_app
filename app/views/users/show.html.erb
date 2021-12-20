@@ -24,5 +24,7 @@
   <% if @user == current_user %>
     <p class="buffer-top"><%= link_to "Редактировать профиль", edit_user_path(@user),
                 class: 'btn btn-primary' %></p>
+    <p><%= link_to "Удалить", @user, data: {confirm: ('Are you sure?')},
+                   method: :delete, class: "btn btn-danger" %></p>
   <% end %>
 </div>

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: {minimum: 2}, uniqueness: true
 
-  has_many :books
+  has_many :books, dependent: :destroy
   has_many :comments
 
   before_validation :set_name, on: :create
