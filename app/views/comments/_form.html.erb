@@ -14,7 +14,9 @@
   <% end %>
 
   <%# Captcha helper %>
-  <%= recaptcha_tags unless current_user.present? %>
+  <div class="btn-group pb-3 m-3">
+    <%= recaptcha_tags unless current_user.present? %>
+  </div>
 
   <div class="actions">
     <%= f.submit 'Отправить', class: 'btn btn-primary' %>
